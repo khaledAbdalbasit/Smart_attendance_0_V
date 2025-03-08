@@ -1,0 +1,211 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #b3d8f1, #f5ccf5);
+}
+a{
+    text-decoration: none;
+}
+/* Header Styles */
+.site-navbar {
+    background-color: #2a5db0;
+    width: 100%;
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo Styling */
+.site-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.site-logo a {
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.site-logo a:hover {
+    color: #f2f2f2;
+}
+
+/* Navigation Styling */
+.site-navigation {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.site-navigation ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-navigation ul li {
+    margin: 0 15px;
+}
+
+.site-navigation ul li a {
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.site-navigation ul li a:hover {
+    color: #f2f2f2;
+    text-decoration: underline;
+}
+
+/* CTA Button */
+.cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.cta a {
+    background: #f2a33c;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cta a:hover {
+    background-color: #e18a1a;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Menu Icon */
+.icon-menu {
+    font-size: 1.5rem;
+    color: white;
+    display: none;
+    cursor: pointer;
+}
+
+/* Mobile Menu */
+.site-mobile-menu {
+    display: none;
+}
+
+/* Attendance Table Styles */
+.attendance-table {
+    width: 90%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+.attendance-table h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2a5db0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+}
+
+thead th {
+    background: #2a5db0;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+tbody td {
+    padding: 10px;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background: #f7f7f7;
+}
+
+tbody tr:nth-child(odd) {
+    background: #ffffff;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+}
+
+/* Responsive Styles for Header */
+@media (max-width: 768px) {
+    .site-navigation ul {
+        display: none;
+    }
+
+    .icon-menu {
+        display: inline-block;
+    }
+
+    .site-mobile-menu {
+        display: block;
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        padding: 20px;
+    }
+
+    .site-mobile-menu-header {
+        text-align: right;
+    }
+
+    .site-mobile-menu-close {
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .site-mobile-menu-body ul {
+        padding: 20px;
+    }
+
+    .site-mobile-menu-body ul li {
+        margin-bottom: 15px;
+    }
+
+    .site-mobile-menu-body ul li a {
+        color: white;
+        font-size: 1.2rem;
+    }
+}

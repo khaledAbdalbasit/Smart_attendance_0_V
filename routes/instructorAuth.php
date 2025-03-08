@@ -13,6 +13,7 @@ Route::prefix('instructor')->group(callback: function () {
         Route::post('/logout', [\App\Http\Controllers\Instructor\InstructorAuth\AuthenticatedSessionController::class, 'destroy'])->name('instructor.logout');
     });
 });
+
 Route::controller(\App\Http\Controllers\Instructor\Subject\SubjectController::class)->middleware('auth:instructors')->prefix('instructor/subject')->group(function () {
     Route::get('/', 'index')->name('instructor.subject.index');
     Route::get('/attendance/{id}', 'show')->name('instructor.subject.attendance');

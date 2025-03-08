@@ -7,8 +7,8 @@ use App\Http\Controllers\Instructor\InstructorAuth\NewPasswordController;
 use App\Http\Controllers\Instructor\InstructorAuth\PasswordController;
 use App\Http\Controllers\Instructor\InstructorAuth\PasswordResetLinkController;
 use App\Http\Controllers\Instructor\InstructorAuth\VerifyEmailController;
-use App\Http\Controllers\StudentAuth\AuthenticatedSessionController;
-use App\Http\Controllers\StudentAuth\RegisteredUserController;
+use App\Http\Controllers\Student\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Student\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {

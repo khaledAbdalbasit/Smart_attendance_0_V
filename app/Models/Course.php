@@ -11,10 +11,14 @@ class Course extends Model
     public $incrementing = false;
     protected $keyType = 'string';
 
-public function students()
+    public function students()
     {
         return $this->belongsToMany(User::class, 'student_courses', 'course_id', 'student_id');
     }
 
+    public function instructor()
+    {
+        return $this->belongsTo(Instructor::class, 'instructor_id');
+    }
 
 }

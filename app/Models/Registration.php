@@ -20,4 +20,14 @@ class Registration extends Model
         return $this->belongsTo(Location::class,'location_name','location_name');
     }
 
+    public function courses()
+    {
+        return $this->belongsTo(Course::class, 'course_id','course_id');
+    }
+
+    public function instructor()
+    {
+        return $this->belongsTo(Instructor::class, 'instructor_id','id');
+    }
+
 }

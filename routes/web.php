@@ -22,5 +22,7 @@ Route::get('/admin/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 require __DIR__ . '/instructorAuth.php';
+require __DIR__. '/roles.php';
+require __DIR__. '/student.php';
 
 
