@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Instructor\Subject;
+namespace App\Http\Controllers\Dashboard\Instructor\Subject;
 
 use App\Http\Controllers\Controller;
-use App\Models\Attendance;
 use App\Models\Course;
-use App\Models\StudentCourse;
 
 class SubjectController extends Controller
 {

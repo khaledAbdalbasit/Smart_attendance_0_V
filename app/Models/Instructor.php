@@ -18,6 +18,8 @@ class Instructor extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'role',
+        'image',
         'password',
     ];
 

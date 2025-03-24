@@ -17,7 +17,7 @@
                     <div class="col-md-4 mb-4">
                         <div class="course bg-white h-100 align-self-stretch shadow-sm rounded">
                             <figure class="m-0">
-                                <a href="course.html">
+                                <a href="{{route('student.attendance',$course->course_id)}}">
                                     <img src="{{asset('student_them')}}/images/img_2.jpg" alt="Image"
                                          class="img-fluid rounded-top">
                                 </a>

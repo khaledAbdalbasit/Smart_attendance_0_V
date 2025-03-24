@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\Instructor\InstructorAuth\ConfirmablePasswordController;
-use App\Http\Controllers\Instructor\InstructorAuth\EmailVerificationNotificationController;
-use App\Http\Controllers\Instructor\InstructorAuth\EmailVerificationPromptController;
-use App\Http\Controllers\Instructor\InstructorAuth\NewPasswordController;
-use App\Http\Controllers\Instructor\InstructorAuth\PasswordController;
-use App\Http\Controllers\Instructor\InstructorAuth\PasswordResetLinkController;
-use App\Http\Controllers\Instructor\InstructorAuth\VerifyEmailController;
+use App\Http\Controllers\Dashboard\Auth\ConfirmablePasswordController;
+use App\Http\Controllers\Dashboard\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Dashboard\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Dashboard\Auth\NewPasswordController;
+use App\Http\Controllers\Dashboard\Auth\PasswordController;
+use App\Http\Controllers\Dashboard\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Dashboard\Auth\VerifyEmailController;
 use App\Http\Controllers\Student\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Student\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +17,9 @@ Route::middleware('guest')->group(function () {
 
     Route::post('register', [RegisteredUserController::class, 'store']);
 
+    Route::get('/', function () {
+        return redirect()->route('login');
+    });
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
         ->name('login');
 

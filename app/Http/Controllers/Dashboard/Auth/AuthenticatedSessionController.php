@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Instructor\InstructorAuth;
+namespace App\Http\Controllers\Dashboard\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StudentAuth\LoginRequest;
@@ -33,7 +33,12 @@ class AuthenticatedSessionController extends Controller
 
         if (Auth::guard('instructors')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('instructor.subject.index');
+            if (Auth::guard('instructors')->user()->role == "instructor") {
+                return redirect()->route('instructor.subject.index');
+            } elseif (Auth::guard('instructors')->user()->role == "super-admin" || "admin") {
+                return redirect()->route('admin.instructors');
+
+            }
         }
 
         return back()->withErrors(['email' => 'Invalid credentials.']);

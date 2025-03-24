@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Instructor\InstructorAuth;
+namespace App\Http\Controllers\Dashboard\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Verified;

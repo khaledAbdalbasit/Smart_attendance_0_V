@@ -24,6 +24,7 @@
 
                 <form role="form" action="{{route('login')}}" method="post">
                     @csrf
+
                     <div class="mb-3">
                         <label class="fw-bold text-dark">Email</label>
                         <input type="email" name="email"  class="form-control rounded-pill shadow-sm border-0 p-3"

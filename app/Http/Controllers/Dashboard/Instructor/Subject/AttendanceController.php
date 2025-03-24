@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Instructor\Subject;
+namespace App\Http\Controllers\Dashboard\Instructor\Subject;
 
 use App\Http\Controllers\Controller;
 use App\Models\Attendance;
 use App\Models\Course;
 use App\Models\Registration;
-use App\Models\Schedule;
 use App\Models\Schedule_subject;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AttendanceController extends Controller
@@ -23,7 +21,9 @@ class AttendanceController extends Controller
         $attendances = Attendance::where('course_id', $id)->get();
 
         $schedule_subject = Schedule_subject::where('course_id', $id)->first();
-        return view('dashboard.instructor.subjectAttendance', compact('students', 'attendances', 'schedule_subject','id'));
+        $course = Course::where('course_id',$id)->first();
+
+        return view('dashboard.instructor.subjectAttendance', compact('students', 'attendances', 'schedule_subject','id','course'));
     }
 
 

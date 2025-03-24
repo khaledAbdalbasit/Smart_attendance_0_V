@@ -16,7 +16,7 @@
     </style>
     <div class="card text-white mb-3" style="background: linear-gradient(310deg, #005399 0%, #005399 100%)">
         <div class="card-body text-center position-relative">
-            <a href="#"
+            <a href="{{route('instructor.subject.takeAttendance', $course->course_id)}}"
                class="btn btn-light fw-bold position-absolute start-0 top-50 translate-middle-y ms-3">Take
                 Attendance</a>
             <h5 class="card-title mt-2">Attendance for</h5>

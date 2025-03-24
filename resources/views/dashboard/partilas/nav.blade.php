@@ -40,7 +40,9 @@
                 </a>
             </li>
             <li class="nav-item">
+                @if(Auth::guard('instructors')->user()->role == 'admin'||'super-admin')
                 <a class="nav-link  " href="../pages/tables.html">
+
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
@@ -78,6 +80,7 @@
                                 <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <title>credit-card</title>
+
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
                                     <g transform="translate(1716.000000, 291.000000)">
@@ -147,6 +150,7 @@
                     <span class="nav-link-text ms-1">RTL</span>
                 </a>
             </li>
+            @endif
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
             </li>
@@ -176,6 +180,7 @@
                     <span class="nav-link-text ms-1">Profile</span>
                 </a>
             </li>
+
             <li class="nav-item">
                 <form id="logout-form" action="{{ route('instructor.logout') }}" method="POST" class="d-inline">
                     @csrf
