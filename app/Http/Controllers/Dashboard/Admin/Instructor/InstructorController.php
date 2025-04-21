@@ -22,9 +22,30 @@ class InstructorController extends Controller
     public function store(CreateInstructorRequest $request)
     {
         $validated = $request->validated();
-
+        $validated['password'] = bcrypt($request->password);
         $instructor = Instructor::create($validated);
         return redirect()->route('admin.instructors')->with('success', $instructor->name . ' created successfully.');
+    }
+
+    public function edit($id)
+    {
+        $instructor = Instructor::find($id);
+        return view('dashboard.admin.instructor.edit', compact('instructor'));
+    }
+
+    public function update(CreateInstructorRequest $request, $id)
+    {
+        $instructor = Instructor::find($id);
+        $validated = $request->validated();
+
+        if ($request->filled('password')) {
+            $validated['password'] = bcrypt($request->password);
+        } else {
+            unset($validated['password']);
+        }
+        $instructor->update($validated);
+
+        return redirect()->route('admin.instructors')->with('success', $instructor->name . ' updated successfully.');
     }
 
     public function delete($id)

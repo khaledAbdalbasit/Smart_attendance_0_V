@@ -149,7 +149,7 @@
         const courseIdInput = document.getElementById('courseId');
         const weekSelect = document.getElementById('weekSelect');
         const tableBody = document.getElementById("attendanceTable");
-
+        let URL = 'https://f3cf-41-234-207-91.ngrok-free.app';
         // Start camera
         startButton.addEventListener('click', () => {
             const courseId = courseIdInput.value.trim();
@@ -166,7 +166,7 @@
                 return;
             }
 
-            videoFeed.src = "http://localhost:5000/video_feed?course_id=" + courseId;
+            videoFeed.src = "https://45bf-41-234-207-91.ngrok-free.app/video_feed?course_id=" + courseId;
             videoFeed.style.display = "block";
             startButton.disabled = true;
             stopButton.disabled = false;
@@ -227,7 +227,7 @@
             }
 
             try {
-                const response = await fetch(`http://localhost:5000/api/get_attendance?course_id=${courseId}&week_id=${weekId}`);
+                const response = await fetch(`https://45bf-41-234-207-91.ngrok-free.app/api/get_attendance?course_id=${courseId}&week_id=${weekId}`);
                 const data = await response.json();
 
                 if (data.attendance && data.attendance.length > 0) {

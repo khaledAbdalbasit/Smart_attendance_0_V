@@ -6,5 +6,5 @@ Route::controller(\App\Http\Controllers\Student\Courses\CourseController::class)
 });
 
 Route::controller(\App\Http\Controllers\Student\Attendance\AttendanceController::class)->prefix('student')->group(function () {
-   Route::get('/attendance/{course_id}', 'show')->name('student.attendance');
+   Route::get('/attendance/{course_id}', 'show.blade.php')->name('student.attendance');
 });

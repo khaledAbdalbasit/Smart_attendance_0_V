@@ -21,7 +21,6 @@ return new class extends Migration
                 ->cascadeOnDelete();
             $table->string('location_name');
             $table->foreign('location_name')->references('location_name')->on('locations')->cascadeOnDelete();
-            $table->foreignId('student_id')->references('id')->on('users')->cascadeOnDelete();
             $table->string('course_id');
             $table->foreign('course_id')->references('course_id')->on('courses')->cascadeOnDelete();
             $table->foreignId('instructor_id')->references('id')->on('instructors')->cascadeOnDelete();

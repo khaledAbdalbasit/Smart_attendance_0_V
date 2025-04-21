@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('dashboard.master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Role Management</title>
+@section('content')
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-
-<body>
-<div class="container mt-4">
+    <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h2>Role Management</h2>
         @can('role-create')
@@ -43,7 +32,7 @@
                 <td>{{ ++$i }}</td>
                 <td>{{ $role->name }}</td>
                 <td>
-                    <a class="btn btn-info btn-sm" href="{{ route('roles.show', $role->id) }}">
+                    <a class="btn btn-info btn-sm" href="{{ route('roles.show.blade.php', $role->id) }}">
                         <i class="fa-solid fa-list"></i> Show
                     </a>
                     @can('role-edit')
@@ -71,6 +60,5 @@
 
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+@endsection
 
-</html>

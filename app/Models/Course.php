@@ -11,6 +11,11 @@ class Course extends Model
     public $incrementing = false;
     protected $keyType = 'string';
 
+    protected $fillable = [
+        'course_id',
+        'course_name',
+        'instructor_id',
+    ];
     public function students()
     {
         return $this->belongsToMany(User::class, 'student_courses', 'course_id', 'student_id');

@@ -1,4 +1,8 @@
 @extends('dashboard.master')
+@section('student-active','active')
+@section('title-page')
+    Students
+@endsection
 @section('content')
     <style>.btn {
             background-color: #005399;

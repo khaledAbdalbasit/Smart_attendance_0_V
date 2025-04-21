@@ -21,8 +21,8 @@
                 Attendance</a>
             <h5 class="card-title mt-2">Attendance for</h5>
             <p class="card-text fw-bold fs-5">
-                Day: <span class="text-warning">{{ $day ?? $schedule_subject->day }}</span> |
-                Period: <span class="text-light">{{ $period ?? $schedule_subject->period_id }}</span>
+    {{--                Day: <span class="text-warning">{{ $day ?? $schedule_subject->day }}</span> |--}}
+    {{--                Period: <span class="text-light">{{ $period ?? $schedule_subject->period_id }}</span>--}}
             </p>
         </div>
     </div>

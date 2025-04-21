@@ -1,5 +1,8 @@
 @extends('dashboard.master')
-
+@section('title-page')
+    Professors
+@endsection
+@section('instructor-active','active')
 @section('content')
 
     <div class="container mt-5">
@@ -53,12 +56,12 @@
             <tbody>
             @foreach ($instructors as $instructor)
                 <tr>
-                    <td>{{ $instructor->id }}</td>
+                    <td>{{$instructor->id}}</td>
                     <td>{{ $instructor->name }}</td>
-                    <td>{{$instructor->email}}</td>
-                    <td>
+                    <td><a href="{{route('admin.profile.instructors',$instructor->id)}}" style="color: #0d6efd;">
+                            {{$instructor->email}}</a></td>                    <td>
                         <!-- Edit Button with gradient -->
-                        <a href="#" class="btn btn-sm"
+                        <a href="{{route('admin.instructors.edit',$instructor->id)}}" class="btn btn-sm"
                            style="background: linear-gradient(310deg, #005399 0%, #005399 100%); color: white;">Edit</a>
 
                         <!-- Delete Form -->

@@ -16,5 +16,5 @@ Route::controller(\App\Http\Controllers\API\Students\CourseController::class)->m
 });
 
 Route::controller(\App\Http\Controllers\API\Students\AttendanceController::class)->middleware('auth:sanctum')->prefix('students')->group(function () {
-   Route::get('/attendance/{course_id}', 'show');
+   Route::get('/attendance/{course_id}', 'show.blade.php');
 });

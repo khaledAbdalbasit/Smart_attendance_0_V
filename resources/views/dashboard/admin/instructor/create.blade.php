@@ -1,5 +1,7 @@
 @extends('dashboard.master')
-
+@section('title-page')
+    Professors
+@endsection
 @section('content')
 
     <div class="container mt-5">

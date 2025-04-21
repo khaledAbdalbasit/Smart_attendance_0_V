@@ -23,7 +23,7 @@ class CreateInstructorRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'email' => 'required|string|email|unique:instructors,email',
+            'email' => 'required|email|unique:instructors,email,' . $this->route('id'),
             'role' => 'required|string',
 //            'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'password' => 'required|string',

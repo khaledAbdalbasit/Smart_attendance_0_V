@@ -14,9 +14,10 @@ Route::prefix('instructor')->group(callback: function () {
     });
 });
 
-Route::controller(\App\Http\Controllers\Dashboard\Instructor\Subject\SubjectController::class)->middleware('auth:instructors')->prefix('instructor/subject')->group(function () {
+Route::controller(\App\Http\Controllers\Dashboard\Instructor\Subject\SubjectController::class)
+    ->middleware('auth:instructors')->prefix('instructor/subject')->group(function () {
     Route::get('/', 'index')->name('instructor.subject.index');
-    Route::get('/attendance/{id}', 'show')->name('instructor.subject.attendance');
+    Route::get('/attendance/{id}', 'show')->name('instructor.subject');
 });
 
 Route::controller(\App\Http\Controllers\Dashboard\Instructor\Subject\AttendanceController::class)->middleware('auth:instructors')->prefix('instructor/subject')->group(function () {
