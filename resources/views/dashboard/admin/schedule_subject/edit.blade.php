@@ -15,7 +15,7 @@
             </div>
         @endif
 
-        <form action="{{ route('admin.schedules.subjects.store', [
+        <form action="{{ route('admin.schedules.subjects.update', [
                     'day' => $subject->day,
                     'period_id' => $subject->period_id,
                     'location_name' => $subject->location_name,
@@ -23,7 +23,7 @@
                     'instructor_id' => $subject->instructor_id,
                 ]) }}" method="POST">
             @csrf
-            @method('PUT') <!-- أو PATCH حسب الطريقة التي تستخدمها في التحديث -->
+            @method('PUT')
 
             <div class="row">
                 <div class="col-md-4 mb-3">

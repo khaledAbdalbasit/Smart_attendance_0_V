@@ -110,6 +110,8 @@ Route::controller(App\Http\Controllers\Dashboard\Admin\Schedule_subject\Schedule
         Route::post('/store', 'store')->name('admin.schedules.subjects.store');
         Route::get('/edit/{day}/{period_id}/{location_name}/{course_id}/{instructor_id}', 'edit')
             ->name('admin.schedules.subjects.edit');
-        Route::put('/update/{id}', 'update')->name('admin.schedules.subjects.update');
-        Route::delete('delete/{id}', 'delete')->name('admin.schedules.subjects.delete');
+        Route::put('/update/{day}/{period_id}/{location_name}/{course_id}/{instructor_id}', 'update')
+            ->name('admin.schedules.subjects.update');
+        Route::delete('delete/{day}/{period_id}/{location_name}/{course_id}/{instructor_id}', 'delete')
+            ->name('admin.schedules.subjects.delete');
     });

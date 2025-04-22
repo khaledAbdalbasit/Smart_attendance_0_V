@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Schedule_subject extends Model
 {
     protected $table = 'schedule_subjects';
+    public $incrementing = false;
+    protected $primaryKey = null;
     protected $fillable = [
         'level',
         'day',

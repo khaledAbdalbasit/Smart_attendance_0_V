@@ -14,6 +14,11 @@
                 {{ session('success') }}
             </div>
         @endif
+        @if(session('subject-exists'))
+            <div class="alert alert-warning">
+                {{ session('subject-exists') }}
+            </div>
+        @endif
 
         <form action="{{ route('admin.schedules.subjects.store') }}" method="POST">
             @csrf
@@ -111,5 +116,9 @@
             const select = document.getElementById('period_id');
             if (select.value) updateDay(select); // auto-set on load if value exists
         });
+
+        setTimeout(() => {
+            document.getElementById('exists-message')?.remove();
+        }, 3000);
     </script>
 @endsection

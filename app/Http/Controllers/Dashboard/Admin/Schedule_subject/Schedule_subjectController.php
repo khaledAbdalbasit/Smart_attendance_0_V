@@ -42,6 +42,18 @@ class Schedule_subjectController extends Controller
     public function store(Schedule_subjectRequest $request)
     {
         $validated = $request->validated();
+
+        $exists = Schedule_subject::where([
+            ['day', $validated['day']],
+            ['period_id', $validated['period_id']],
+            ['location_name', $validated['location_name']],
+        ])->exists();
+
+        if ($exists) {
+            return redirect()->route('admin.schedules.subjects.create')
+                ->with('subject-exists', 'This location and time  is already scheduled.');
+        }
+
         Schedule_subject::create($validated);
         return redirect()->route('admin.schedules.subjects')->with('success' . ' created successfully.');
 
@@ -49,14 +61,13 @@ class Schedule_subjectController extends Controller
 
     public function edit($day, $period_id, $location_name, $course_id, $instructor_id)
     {
-        // جلب الـ subject بناءً على المعايير المحددة
         $subject = Schedule_subject::where([
             ['day', $day],
             ['period_id', $period_id],
             ['location_name', $location_name],
             ['course_id', $course_id],
             ['instructor_id', $instructor_id],
-        ])->first();
+        ])->firstOrFail();
 
         $scheduleData = Schedule::with('period')
             ->select('day', 'period_id')
@@ -71,6 +82,44 @@ class Schedule_subjectController extends Controller
             'locations',
             'courses', 'subject'
         ));
+    }
+
+    public function update(Schedule_subjectRequest $request, $day, $period_id, $location_name, $course_id, $instructor_id)
+    {
+        $validated = $request->validated();
+
+        $subject = Schedule_subject::where([
+            ['day', $day],
+            ['period_id', $period_id],
+            ['location_name', $location_name],
+            ['course_id', $course_id],
+            ['instructor_id', $instructor_id],
+        ])->firstOrFail();
+
+        $subject->update($validated);
+
+        return redirect()->route('admin.schedules.subjects')
+            ->with('success', 'Schedule subject updated successfully.');
+    }
+
+
+    public function delete($day, $period_id, $location_name, $course_id, $instructor_id)
+    {
+        $deletedCount = Schedule_subject::where([
+            ['day', $day],
+            ['period_id', $period_id],
+            ['location_name', $location_name],
+            ['course_id', $course_id],
+            ['instructor_id', $instructor_id],
+        ])->delete();
+
+        if ($deletedCount > 0) {
+            return redirect()->route('admin.schedules.subjects')
+                ->with('success-delete', 'Schedule subject deleted successfully.');
+        } else {
+            return redirect()->route('admin.schedules.subjects')
+                ->with('failed-delete', 'Schedule subject not found or already deleted.');
+        }
     }
 
 
