@@ -139,6 +139,19 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link @yield('student-registration-active')" href="{{route('admin.registrations')}}">
+                            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <!-- Book Icon (For subjects/courses) -->
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M7 10h5v2H7v-2zm0 4h5v2H7v-2zm6-4h4v2h-4v-2zm0 4h4v2h-4v-2z"/>
+                                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v15a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V5a2 2 0 0 0-2-2zm0 17H5V8h14v12zm0-14H5V5h14v1z"/>
+                                </svg>
+
+                            </div>
+                            <span class="nav-link-text ms-1">Student Registration</span>
+                        </a>
+                    </li>
                 @endif
 
             <li class="nav-item mt-3">

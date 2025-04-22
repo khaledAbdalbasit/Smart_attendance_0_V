@@ -16,6 +16,7 @@ class CreateAdminSeeder extends Seeder
         $user = Instructor::create([
             'name' => 'Khaled abd albasit',
             'email' => 'khaled@super-admin.com',
+            'role' => 'super-admin',
             'password' => bcrypt('123456789')
         ]);
 

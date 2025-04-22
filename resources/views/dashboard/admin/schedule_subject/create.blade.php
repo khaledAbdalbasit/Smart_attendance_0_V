@@ -1,5 +1,4 @@
 @extends('dashboard.master')
-
 @section('title-page')
     Add Schedule Subject
 @endsection

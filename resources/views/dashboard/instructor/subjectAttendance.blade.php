@@ -49,7 +49,7 @@
 
                     @for ($i = 1; $i <= 13; $i++)
                         @php
-                            $filteredAttendance = $student->attendances->where('week_id', $i)->first();
+                            $filteredAttendance = $student->attendances->where('week_number', $i)->first();
                         @endphp
                         <td>
                             <div class="form-check form-switch">
