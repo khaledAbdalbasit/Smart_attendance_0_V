@@ -9,7 +9,7 @@ class WeeksTableSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('weeks')->truncate(); // حذف البيانات القديمة
+//        DB::table('weeks')->truncate(); // حذف البيانات القديمة
 
         $startDate = Carbon::create(2025, 2, 16); // تحديد تاريخ البدء الأول
         $numberOfWeeks = 12; // عدد الأسابيع التي تريد إضافتها
