@@ -18,7 +18,16 @@
         <form action="{{ route('admin.students.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
-                                <div class="col-md-4 mb-3">
+                <div class="col-md-4 mb-3">
+                    <label for="id">ID</label>
+                    <input type="number" name="id" class="form-control" id="id" placeholder="Enter student ID"
+                           value="{{ old('id') }}" required>
+                    @error('id')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="col-md-4 mb-3">
                     <label for="name">Name</label>
                     <input type="text" name="name" class="form-control" id="name" placeholder="Enter student name"
                            value="{{ old('name') }}" required>

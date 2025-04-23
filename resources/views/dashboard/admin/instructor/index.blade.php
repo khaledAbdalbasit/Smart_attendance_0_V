@@ -59,7 +59,8 @@
                     <td>{{$instructor->id}}</td>
                     <td>{{ $instructor->name }}</td>
                     <td><a href="{{route('admin.profile.instructors',$instructor->id)}}" style="color: #0d6efd;">
-                            {{$instructor->email}}</a></td>                    <td>
+                            {{$instructor->email}}</a></td>
+                    <td>
                         <!-- Edit Button with gradient -->
                         <a href="{{route('admin.instructors.edit',$instructor->id)}}" class="btn btn-sm"
                            style="background: linear-gradient(310deg, #005399 0%, #005399 100%); color: white;">Edit</a>

@@ -22,6 +22,7 @@ class StudentRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'id'=>'required|unique:users,id',
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $this->route('id'),
             'level' => 'required|numeric',

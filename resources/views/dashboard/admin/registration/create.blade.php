@@ -16,7 +16,10 @@
                 <input type="text" id="student_id" name="student_id" class="form-control" placeholder="Enter Student ID"
                        value="{{ old('student_id') }}">
             </div>
-            <button type="submit" class="btn btn-primary btn-block mt-3">Search</button>
+            <button type="submit" class="btn btn-block mt-3"
+                    style="background: linear-gradient(310deg, #005399 0%, #005399 100%); color: white;">
+                Search
+            </button>
         </form>
 
         <!-- عرض الأخطاء إذا كانت موجودة -->
@@ -42,7 +45,7 @@
 
             @php
                 $days = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday'];
-                $periods = [1, 2, 3, 4, 5,6,7,8]; // عدد الفترات
+                $periods = [1, 2, 3, 4, 5, 6, 7, 8];
             @endphp
 
             <table class="table table-bordered table-striped mt-4">
@@ -67,7 +70,7 @@
                                 @if ($subjectsInCell->isNotEmpty())
                                     @foreach ($subjectsInCell as $subject)
                                         <div class="mb-1 p-1 bg-light rounded">
-                                            <strong>{{ $subject->courses->course_name }}</strong>({{$subject->courses->course_id}}) <br>
+                                            <strong>{{ $subject->courses->course_name }}</strong> ({{ $subject->courses->course_id }})<br>
                                             <small>{{ $subject->location_name }}</small>
                                         </div>
                                     @endforeach
@@ -93,7 +96,10 @@
                         <input type="text" id="course_code" name="course_code" class="form-control"
                                placeholder="Enter Course Code">
                     </div>
-                    <button type="submit" class="btn btn-success mt-2">Register Course</button>
+                    <button type="submit" class="btn btn-block mt-2"
+                            style="background: linear-gradient(310deg, #005399 0%, #005399 100%); color: white;">
+                        Register Course
+                    </button>
                 </form>
             </div>
         @endif

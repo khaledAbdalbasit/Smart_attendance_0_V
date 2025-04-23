@@ -10,7 +10,7 @@ class InstructorController extends Controller
 {
     public function index()
     {
-        $instructors = Instructor::get();
+        $instructors = Instructor::where('id', '!=', 1)->get();
         return view('dashboard.admin.instructor.index', compact('instructors'));
     }
 

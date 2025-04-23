@@ -13,13 +13,12 @@ class LocationSeeder extends Seeder
      */
     public function run(): void
     {
-        $faker = Faker::create();
-
-        for ($i = 0; $i < 10; $i++) { // إنشاء 10 مواقع
+        for ($i = 1; $i <= 10; $i++) {
             DB::table('locations')->insert([
-                'location_name' => $faker->unique()->word . ' Hall', // اسم عشوائي مع كلمة Hall
-                'capacity' => $faker->numberBetween(20, 200), // سعة عشوائية بين 20 و 200
+                'location_name' => 'R' . $i,
+                'capacity' => rand(40, 40), // أو أي رقم ثابت لو حبيت
             ]);
         }
+
     }
 }
