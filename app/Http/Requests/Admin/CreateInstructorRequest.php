@@ -22,7 +22,7 @@ class CreateInstructorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
+            'name' => ['required', 'string', 'regex:/^[^0-9]*$/'],
             'email' =>  $this->isMethod('post')?'required|email|unique:instructors,email,' . $this->route('id'):'required',
             'role' => 'required|string',
             'password' => 'required|string',
