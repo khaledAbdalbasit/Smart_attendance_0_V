@@ -10,7 +10,9 @@ class InstructorController extends Controller
 {
     public function index()
     {
-        $instructors = Instructor::where('id', '!=', 1)->get();
+        $instructors = Instructor::where('role', '!=', 'super-admin')
+            ->where('role', '!=', 'admin')
+            ->get();
         return view('dashboard.admin.instructor.index', compact('instructors'));
     }
 

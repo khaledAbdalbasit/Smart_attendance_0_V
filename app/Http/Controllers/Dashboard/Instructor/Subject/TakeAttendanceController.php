@@ -30,7 +30,7 @@ class TakeAttendanceController extends Controller
         $week_id = $request->input('week_id');
 
         try {
-            $response = Http::get('https://45bf-41-234-207-91.ngrok-free.app/api/get_attendance', [
+            $response = Http::get('https://4464-41-234-34-14.ngrok-free.app/api/get_attendance', [
                 'course_id' => $course_id,
                 'week_id' => $week_id,
             ]);

@@ -17,7 +17,9 @@ class SubjectController extends Controller
 
     public function create()
     {
-        $instructors = Instructor::all(); // جلب جميع المدربين
+        $instructors = Instructor::where('role', '!=', 'super-admin')
+            ->where('role', '!=', 'admin')
+            ->get();
         return view('dashboard.admin.subject.create', compact('instructors'));
     }
 
@@ -31,7 +33,9 @@ class SubjectController extends Controller
     public function edit($id)
     {
         $subject = Course::find($id);
-        $instructors = Instructor::get();
+        $instructors = Instructor::where('role', '!=', 'super-admin')
+            ->where('role', '!=', 'admin')
+            ->get();
         return view('dashboard.admin.subject.edit', compact('subject', 'instructors'));
     }
 

@@ -17,7 +17,7 @@ class CreateAdminSeeder extends Seeder
             'name' => 'Khaled abd albasit',
             'email' => 'khaled@super-admin.com',
             'role' => 'super-admin',
-            'password' => bcrypt('123456789')
+            'password' => bcrypt('khaled@superadmin')
         ]);
 
         $user->assignRole('super-admin');

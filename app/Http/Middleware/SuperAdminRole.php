@@ -17,7 +17,7 @@ class SuperAdminRole
     {
         $user = auth('instructors')->user();
 
-        if (!$user->hasRole(['super-admin', 'admin'])) {
+        if (!$user->role(['super-admin', 'admin'])) {
             abort(403, 'Unauthorized - Admins only.');
         }
         return $next($request);

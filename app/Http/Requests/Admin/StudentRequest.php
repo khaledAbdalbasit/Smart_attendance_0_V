@@ -22,10 +22,10 @@ class StudentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id'=>'required|unique:users,id',
+            'id' => $this->isMethod('post') ? 'required|unique:users,id|integer|min:1' : 'required',
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $this->route('id'),
-            'level' => 'required|numeric',
+            'email' => $this->isMethod('post') ? 'required|email|unique:users,email,' . $this->route('id') : 'required',
+            'level' => 'required|numeric|min:0|max:4',
             'password' => $this->isMethod('post') ? 'required' : 'nullable',
             'face_data' => $this->isMethod('post') ? 'required|image' : 'nullable|image',
         ];

@@ -20,10 +20,21 @@ class AttendanceController extends Controller
 
         $attendances = Attendance::where('course_id', $id)->get();
 
-        $schedule_subject = Schedule_subject::where('course_id', $id)->first();
-        $course = Course::where('course_id',$id)->first();
+        $attendanceMap = [];
 
-        return view('dashboard.instructor.subjectAttendance', compact('students', 'attendances', 'schedule_subject','id','course'));
+        foreach ($attendances as $attendance) {
+            $attendanceMap[$attendance->student_id][$attendance->week_id] = true;
+        }
+        $schedule_subject = Schedule_subject::where('course_id', $id)->first();
+        $course = Course::where('course_id', $id)->first();
+
+        return view('dashboard.instructor.subjectAttendance', compact(
+            'students',
+            'attendances',
+            'attendanceMap',
+            'schedule_subject',
+            'id',
+            'course'));
     }
 
 
@@ -66,8 +77,6 @@ class AttendanceController extends Controller
 
         return redirect()->back()->with('success', 'Attendance updated successfully!');
     }
-
-
 
 
 }

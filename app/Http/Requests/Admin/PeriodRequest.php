@@ -22,7 +22,7 @@ class PeriodRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'period_number' =>  $this->isMethod('POST')?'required|numeric|unique:periods,period_number':'nullable|unique:periods,period_number',
+            'period_number' =>  $this->isMethod('POST')?'required|numeric|unique:periods,period_number':'nullable',
             'start_time' =>  $this->isMethod('POST')?'required|date_format:H:i':'nullable',
             'end_time'=> $this->isMethod('POST')?'required|date_format:H:i|after:start_time':'nullable',
         ];

@@ -57,7 +57,7 @@ class RoleAndPremitionController extends Controller
         $role = Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($permissionsID);
 
-        return redirect()->route('dashboard.admin.roles.index')
+        return redirect()->route('roles')
             ->with('success','Role created successfully');
     }
     /**
@@ -73,7 +73,7 @@ class RoleAndPremitionController extends Controller
             ->where("role_has_permissions.role_id",$id)
             ->get();
 
-        return view('dashboard.admin.roles.show.blade.php',compact('role','rolePermissions'));
+        return view('dashboard.admin.roles.show',compact('role','rolePermissions'));
     }
 
     /**

@@ -22,7 +22,7 @@ class SubjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'course_id' => 'required|unique:courses,course_id',
+            'course_id' =>  $this->isMethod('post') ? 'required|unique:courses,course_id':'required',
             'course_name' => 'required',
             'instructor_id' => 'required|exists:instructors,id',
         ];
